@@ -1,5 +1,5 @@
-Installation
+# Installation
 `npm install`
 
-Development
+# Development
 `npm run dev`
