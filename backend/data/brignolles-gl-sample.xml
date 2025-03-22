@@ -1,0 +1,73 @@
+<WCFRestIRFGeneralLegerResult xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+    <response>
+        <result>Success</result>
+        <datetime>2024-01-01T00:00:00</datetime>
+        <duration>00:00:01</duration>
+    </response>
+    <data>
+        <wsGeneralLedger>
+            <balance>-77754.23</balance>
+            <category>1</category>
+            <collectif>411100</collectif>
+            <comment />
+            <credit>77754.23</credit>
+            <currency>EUR</currency>
+            <currencyAmount>0</currencyAmount>
+            <date>2016-06-01</date>
+            <debit>0</debit>
+            <description>EDF</description>
+            <header>{6BB250E2-EF74-4B41-AB79-4E6AAD599DDF}</header>
+            <internalID>{C575EABB-D2E8-422B-A9E6-02042EFD0310}</internalID>
+            <journalIndex>1467886848315</journalIndex>
+            <lastModifyDate>2016-07-07</lastModifyDate>
+            <letter>Oui</letter>
+            <letterID>{34950884-49A6-4FA6-A700-B1FDCFBBE819}</letterID>
+            <letteredInBetween>Non</letteredInBetween>
+            <name>EDF</name>
+            <number>0EDF</number>
+            <paymentMethod>0</paymentMethod>
+            <paymentMethodDescription>Aucun</paymentMethodDescription>
+            <periodEnd />
+            <periodStart />
+            <piece>2</piece>
+            <qtyUnit />
+            <quantity>0</quantity>
+            <ref>BQ06</ref>
+            <term />
+            <voucherID />
+            <voucherRef>VIR</voucherRef>
+        </wsGeneralLedger>
+        <wsGeneralLedger>
+            <balance>65572.06</balance>
+            <category>1</category>
+            <collectif>411100</collectif>
+            <comment />
+            <credit>0</credit>
+            <currency>EUR</currency>
+            <currencyAmount>0</currencyAmount>
+            <date>2016-04-08</date>
+            <debit>65572.06</debit>
+            <description>EDF 03/16</description>
+            <header>{7F28EE2E-E8DB-4A96-8985-5B74F66862DD}</header>
+            <internalID>{A7FF3014-D805-44DE-89BB-0A45845A6CA4}</internalID>
+            <journalIndex>1462792597843</journalIndex>
+            <lastModifyDate>2016-06-07</lastModifyDate>
+            <letter>Oui</letter>
+            <letterID>{24D9A5AC-4301-4B31-B0D9-554E3E90024B}</letterID>
+            <letteredInBetween>Non</letteredInBetween>
+            <name>EDF</name>
+            <number>0EDF</number>
+            <paymentMethod>0</paymentMethod>
+            <paymentMethodDescription>Aucun</paymentMethodDescription>
+            <periodEnd />
+            <periodStart />
+            <piece>1</piece>
+            <qtyUnit />
+            <quantity>0</quantity>
+            <ref>VTE</ref>
+            <term />
+            <voucherID />
+            <voucherRef>2016.BRI.03</voucherRef>
+        </wsGeneralLedger>
+    </data>
+</WCFRestIRFGeneralLegerResult>
