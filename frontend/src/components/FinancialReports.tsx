@@ -11,14 +11,14 @@ export default function FinancialReports() {
             <div className="flex gap-4 mb-6 justify-center">
                 <button
                     onClick={() => setView("balance")}
-                    className={`px-4 py-2 rounded font-medium shadow ${view === "balance" ? "bg-[#195058] text-white" : "bg-gray-200 text-gray-700"
+                    className={`px-4 py-2 rounded font-medium shadow ${view === "balance" ? "bg-[#195058] text-white" : "bg-[#f9f9f9] text-gray-700"
                         }`}
                 >
                     Balance Sheet
                 </button>
                 <button
                     onClick={() => setView("pnl")}
-                    className={`px-4 py-2 rounded font-medium shadow ${view === "pnl" ? "bg-[#195058] text-white" : "bg-gray-200 text-gray-700"
+                    className={`px-4 py-2 rounded font-medium shadow ${view === "pnl" ? "bg-[#195058] text-white" : "bg-[#f9f9f9] text-gray-700"
                         }`}
                 >
                     Profit & Loss
