@@ -51,20 +51,20 @@ export default function BalanceSheet() {
             <h1 className="text-[36px] font-bold mb-6 text-center">Balance Sheet</h1>
             <div className="flex flex-col md:flex-row gap-12">
                 <div className="w-full md:w-1/2">
-                    <h2 className="text-lg font-semibold border-b pb-1 mb-2">Assets</h2>
+                    <h2 className="text-lg font-semibold border-b pb-1 mb-2">Assets (€)</h2>
                     <table className="w-full text-sm">
                         <tbody>
                             <tr>
-                                <td className="py-1">Fixed Assets</td>
-                                <td className="text-right">€{data.assets.fixed.toFixed(2)}</td>
+                                <td className="text-left py-1">Fixed Assets</td>
+                                <td className="text-right">{data.assets.fixed.toLocaleString()}</td>
                             </tr>
                             <tr>
-                                <td className="py-1">Current Assets</td>
-                                <td className="text-right">€{data.assets.current.toFixed(2)}</td>
+                                <td className="text-left py-1">Current Assets</td>
+                                <td className="text-right">{data.assets.current.toLocaleString()}</td>
                             </tr>
                             <tr className="border-t font-bold">
-                                <td className="py-1">Total Assets</td>
-                                <td className="text-right">€{data.assets.total.toFixed(2)}</td>
+                                <td className="text-left py-1">Total Assets</td>
+                                <td className="text-right">{data.assets.total.toLocaleString()}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -74,32 +74,32 @@ export default function BalanceSheet() {
                     <h2 className="text-lg font-semibold border-b pb-1 mb-2">Liabilities & Equity</h2>
                     <table className="w-full text-sm">
                         <tbody>
-                            <tr className="text-gray-700 font-medium">
+                            <tr className="text-left text-gray-700 font-semibold">
                                 <td colSpan={2} className="pt-2">Liabilities</td>
                             </tr>
                             <tr>
-                                <td className="py-1">Short-Term</td>
-                                <td className="text-right">€{data.liabilities.short_term.toFixed(2)}</td>
+                                <td className="text-left py-1">Short-Term</td>
+                                <td className="text-right">{data.liabilities.short_term.toLocaleString()}</td>
                             </tr>
                             <tr>
-                                <td className="py-1">Long-Term</td>
-                                <td className="text-right">€{data.liabilities.long_term.toFixed(2)}</td>
+                                <td className="text-left py-1">Long-Term</td>
+                                <td className="text-right">{data.liabilities.long_term.toLocaleString()}</td>
                             </tr>
                             <tr className="font-bold">
-                                <td className="py-1">Total Liabilities</td>
-                                <td className="text-right">€{data.liabilities.total.toFixed(2)}</td>
+                                <td className="text-left py-1">Total Liabilities</td>
+                                <td className="text-right">{data.liabilities.total.toLocaleString()}</td>
                             </tr>
 
                             <tr className="text-gray-700 font-medium pt-4">
-                                <td colSpan={2} className="pt-4">Equity</td>
+                                <td colSpan={2} className="text-left pt-4">Equity</td>
                             </tr>
                             <tr>
-                                <td className="py-1">Retained Earnings</td>
-                                <td className="text-right">€{data.equity.retained_earnings.toFixed(2)}</td>
+                                <td className="text-left py-1">Retained Earnings</td>
+                                <td className="text-right">{data.equity.retained_earnings.toLocaleString()}</td>
                             </tr>
                             <tr className="font-bold">
-                                <td className="py-1">Total Equity</td>
-                                <td className="text-right">€{data.equity.total.toFixed(2)}</td>
+                                <td className="text-left py-1">Total Equity</td>
+                                <td className="text-right">{data.equity.total.toLocaleString()}</td>
                             </tr>
                         </tbody>
                     </table>

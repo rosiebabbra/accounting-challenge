@@ -1,3 +1,5 @@
 Development
 
-`python3 app.py`
+`source bin/activate`
+
+`flask run`

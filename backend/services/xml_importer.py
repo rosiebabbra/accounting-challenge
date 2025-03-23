@@ -1,35 +1,39 @@
+# backend/utils/xml_importer.py
+
 import xml.etree.ElementTree as ET
 from datetime import datetime
+from models import Transaction
 
-
-def parse_xml_file(file_stream):
-    tree = ET.parse(file_stream)
+def parse_xml_file(file_path: str):
+    tree = ET.parse(file_path)
     root = tree.getroot()
+    entries = root.findall(".//wsGeneralLedger")
+
     transactions = []
 
-    for entry in root.findall(".//wsGeneralLedger"):
-        date_str = entry.findtext("date", default=None)
-        account_code = entry.findtext("collectif", default="000000")
-        balance = float(entry.findtext("balance", default="0") or 0)
-        label = entry.findtext("description", default="(no label)")
-
-        print("🔎 Raw values:", date_str, account_code, balance)
+    for entry in entries:
+        date_str = entry.findtext("date")
+        credit_str = entry.findtext("credit") or "0"
+        debit_str = entry.findtext("debit") or "0"
 
         try:
-            # Try flexible parsing
-            from dateutil.parser import parse
+            date = datetime.strptime(date_str, "%Y-%m-%d").date()
+            credit = float(credit_str)
+            debit = float(debit_str)
 
-            date = parse(date_str).date()
+            # We'll use the net amount and label whether it's a credit or debit
+            amount = credit - debit  # Credit is positive, debit is negative
 
-            transactions.append(
-                {
-                    "date": date,
-                    "label": label,
-                    "amount": balance,
-                    "account_code": account_code,
-                }
+            transaction = Transaction(
+                date=date,
+                label="",
+                amount=amount,
+                account_code="000000",  # Dummy code, not used per Ludovik
+                company_id=1  # For test purposes
             )
+            transactions.append(transaction)
         except Exception as e:
-            print("⚠️ Skipping row due to error:", e)
+            print(f"Skipping invalid entry: {e}")
+            continue
 
     return transactions

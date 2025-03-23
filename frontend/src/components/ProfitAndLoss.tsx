@@ -62,20 +62,20 @@ export default function ProfitAndLoss() {
                     </thead>
                     <tbody>
                         <tr>
-                            <td className="font-bold pt-4">Revenue</td>
+                            <td className="text-left font-bold pt-4">Revenue</td>
                             <td></td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">Product Sales</td>
-                            <td className="text-right">{data.revenue.product_sales.toFixed(2)}</td>
+                            <td className="text-left pl-2 py-1">Product Sales</td>
+                            <td className="text-right">{data.revenue.product_sales.toLocaleString()}</td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">Grants</td>
-                            <td className="text-right">{data.revenue.grants.toFixed(2)}</td>
+                            <td className="text-left pl-2 py-1">Grants</td>
+                            <td className="text-right">{data.revenue.grants.toLocaleString()}</td>
                         </tr>
                         <tr className="border-t font-bold">
-                            <td className="pl-4 py-1">Total Revenue</td>
-                            <td className="text-right">{data.revenue.total.toFixed(2)}</td>
+                            <td className="text-left py-1">Total Revenue</td>
+                            <td className="text-right">{data.revenue.total.toLocaleString()}</td>
                         </tr>
 
                         <tr>
@@ -83,33 +83,33 @@ export default function ProfitAndLoss() {
                             <td></td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">Payroll</td>
-                            <td className="text-right">{data.expenses.payroll.toFixed(2)}</td>
+                            <td className="text-left py-1">Payroll</td>
+                            <td className="text-right">{data.expenses.payroll.toLocaleString()}</td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">Maintenance</td>
-                            <td className="text-right">{data.expenses.maintenance.toFixed(2)}</td>
+                            <td className="text-left  py-1">Maintenance</td>
+                            <td className="text-right">{data.expenses.maintenance.toLocaleString()}</td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">Taxes</td>
-                            <td className="text-right">{data.expenses.taxes.toFixed(2)}</td>
+                            <td className="text-left  py-1">Taxes</td>
+                            <td className="text-right">{data.expenses.taxes.toLocaleString()}</td>
                         </tr>
                         <tr>
-                            <td className="pl-4 py-1">External Services</td>
-                            <td className="text-right">{data.expenses.external_services.toFixed(2)}</td>
+                            <td className="text-left py-1">External Services</td>
+                            <td className="text-right">{data.expenses.external_services.toLocaleString()}</td>
                         </tr>
                         <tr className="border-t font-bold">
-                            <td className="pl-4 py-1">Total Expenses</td>
-                            <td className="text-right">{data.expenses.total.toFixed(2)}</td>
+                            <td className="text-left py-1">Total Expenses</td>
+                            <td className="text-right">{data.expenses.total.toLocaleString()}</td>
                         </tr>
 
                         <tr className="border-t-2 font-bold text-lg">
-                            <td className="pt-4">Net Profit</td>
+                            <td className="text-left pt-4">Net Profit</td>
                             <td className="text-right pt-4">
                                 {data.profit >= 0 ? (
-                                    <span className="text-green-600">{data.profit.toFixed(2)}</span>
+                                    <span className="text-green-600">€{data.profit.toLocaleString()}</span>
                                 ) : (
-                                    <span className="text-red-600">-{Math.abs(data.profit).toFixed(2)}</span>
+                                    <span className="text-red-600">-€{Math.abs(data.profit).toLocaleString()}</span>
                                 )}
                             </td>
                         </tr>
