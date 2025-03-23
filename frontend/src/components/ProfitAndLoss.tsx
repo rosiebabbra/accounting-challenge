@@ -29,7 +29,7 @@ export default function ProfitAndLoss() {
         const fetchData = async () => {
             try {
                 const res = await fetch(
-                    "/api/companies/1/reports/pnl?start=2017-01-01&end=2017-12-31"
+                    `${import.meta.env.VITE_API_URL}/api/companies/1/reports/pnl?start=2017-01-01&end=2017-12-31`
                 )
                 if (!res.ok) throw new Error("Failed to fetch P&L report")
                 const json = await res.json()

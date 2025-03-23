@@ -27,8 +27,9 @@ export default function BalanceSheet() {
         const fetchData = async () => {
             try {
                 const res = await fetch(
-                    "/api/companies/1/reports/balance?start=2017-01-01&end=2017-12-31"
+                    `${import.meta.env.VITE_API_URL}/api/companies/1/reports/balance?start=2017-01-01&end=2017-12-31`
                 )
+
                 if (!res.ok) throw new Error("Failed to fetch balance sheet")
                 const json = await res.json()
                 setData(json)
