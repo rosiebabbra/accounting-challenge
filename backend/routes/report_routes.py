@@ -11,15 +11,6 @@ from io import BytesIO
 report_routes = Blueprint("report_routes", __name__)
 
 
-@report_routes.route("/api/balance")
-def get_balance():
-    tree = ET.parse("./data/brignolles-gl.xml")
-    root = tree.getroot()
-    wsGeneralLedger = root.find("data").find("wsGeneralLedger")
-    balance = wsGeneralLedger.find("balance").text
-    return jsonify({"balance": balance})
-
-
 @report_routes.route("/api/companies", methods=["POST"])
 def create_company():
     data = request.json

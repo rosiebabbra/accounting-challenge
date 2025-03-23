@@ -1,9 +1,15 @@
 from flask import Flask
+from flask_cors import CORS  # ✅ import CORS first
+
 from models import db
 from routes.report_routes import report_routes
 from routes.import_routes import import_routes
 
 app = Flask(__name__)
+
+# ✅ Allow ALL origins and all routes — safest config for Railway + Vercel
+CORS(app)
+
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///accounting.db"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
