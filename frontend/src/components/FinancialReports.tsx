@@ -26,7 +26,7 @@ export default function FinancialReports() {
 
     return (
         <div className="p-4 mx-auto max-w-6xl transition-colors duration-300 rounded-[29px] shadow-lg dark:bg-gray-800">
-            <div className="flex justify-between items-center mb-6">
+            <div className="flex justify-between items-center mt-4 mb-2">
                 <div className="flex gap-4">
                     <button
                         onClick={() => setView("balance")}
