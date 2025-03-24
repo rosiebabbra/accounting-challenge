@@ -68,7 +68,7 @@ export default function FinancialReports() {
                 </div>
             </div>
 
-            <div className="bg-gray-100 dark:bg-[#1e293b] dark:text-white transition-colors duration-300">
+            <div className="bg-gray-100 dark:bg-[#1e293b] dark:text-white transition-colors duration-100">
                 {view === "pnl" ? <ProfitAndLoss /> : <BalanceSheet />}
             </div>
         </div>
