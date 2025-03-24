@@ -1,2 +1,19 @@
-# Created by venv; see https://docs.python.org/3/library/venv.html
-*
+# Ignore Python cache and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+.venv/
+instance/
+include/
+lib/
+bin/
+
+# Ignore temp files and logs
+*.log
+*.sqlite3
+
+# Source data
+data/*
