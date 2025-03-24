@@ -1,8 +1,7 @@
-# backend/utils/xml_importer.py
-
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from models import Transaction
+
 
 def parse_xml_file(file_path: str):
     tree = ET.parse(file_path)
@@ -12,26 +11,30 @@ def parse_xml_file(file_path: str):
     transactions = []
 
     for entry in entries:
-        date_str = entry.findtext("date")
-        credit_str = entry.findtext("credit") or "0"
-        debit_str = entry.findtext("debit") or "0"
-
         try:
+            date_str = entry.findtext("date")
+            credit_str = entry.findtext("credit") or "0"
+            debit_str = entry.findtext("debit") or "0"
+
             date = datetime.strptime(date_str, "%Y-%m-%d").date()
             credit = float(credit_str)
             debit = float(debit_str)
-
-            # We'll use the net amount and label whether it's a credit or debit
             amount = credit - debit  # Credit is positive, debit is negative
+
+            # Get account code from <collectif>, fallback to <number>
+            account_code = entry.findtext("collectif")
+            if not account_code or account_code.strip() == "":
+                account_code = entry.findtext("number") or "000000"
 
             transaction = Transaction(
                 date=date,
-                label="",
+                label="",  # You could later extract <label> or <comment> if useful
                 amount=amount,
-                account_code="000000",  # Dummy code, not used per Ludovik
-                company_id=1  # For test purposes
+                account_code=account_code.strip(),
+                company_id=1,  # Static for now
             )
             transactions.append(transaction)
+
         except Exception as e:
             print(f"Skipping invalid entry: {e}")
             continue
