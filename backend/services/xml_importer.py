@@ -19,7 +19,7 @@ def parse_xml_file(file_path: str):
             date = datetime.strptime(date_str, "%Y-%m-%d").date()
             credit = float(credit_str)
             debit = float(debit_str)
-            amount = credit - debit  # Credit is positive, debit is negative
+            amount = credit - debit
 
             # Get account code from <collectif>, fallback to <number>
             account_code = entry.findtext("collectif")
@@ -28,10 +28,10 @@ def parse_xml_file(file_path: str):
 
             transaction = Transaction(
                 date=date,
-                label="",  # You could later extract <label> or <comment> if useful
+                label="",
                 amount=amount,
                 account_code=account_code.strip(),
-                company_id=1,  # Static for now
+                company_id=1,
             )
             transactions.append(transaction)
 
