@@ -160,9 +160,9 @@ export default function BalanceSheet() {
     }, [data])
 
     return (
-        <div className="p-4 max-w-5xl mx-auto">
+        <div className="p-4 min-w-[50vw] max-w-screen mx-auto">
             <h1 className="text-[36px] font-bold mb-6 text-gray-700 dark:text-gray-200 text-center">Balance Sheet</h1>
-            <div className="flex flex-row md:flex-col gap-4 items-center justify-between mb-6">
+            <div className="flex flex-row max-[639px]:flex-col items-center gap-4 justify-center mb-6">
                 <div className="flex gap-2 items-center">
                     <label className="text-sm font-medium">Start Date:</label>
                     <DatePicker selected={startDate} onChange={(date: Date | null) => date && setStartDate(date)} className="border px-2 py-1 rounded" />
@@ -170,7 +170,7 @@ export default function BalanceSheet() {
                 <div className="flex gap-2 items-center">
                     <label className="text-sm font-medium">End Date:</label>
                     <DatePicker selected={endDate} onChange={(date: Date | null) => date && setEndDate(date)}
-                        className="border px-2 py-1 rounded" />
+                        className="border px-2 py-1 rounded ml-2" />
                 </div>
             </div>
 
