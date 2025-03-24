@@ -49,7 +49,7 @@ export default function FinancialReports() {
                 </div>
 
 
-                <div className="ml-6">
+                <div className="ml-6 text-right">
                     <button
                         onClick={() => setDarkMode(prev => !prev)}
                         className="text-lg bg-gray-100 dark:bg-[#1e293b] text-[#195058] dark:text-white px-3 py-2 rounded shadow hover:opacity-90 transition-all"
@@ -60,9 +60,9 @@ export default function FinancialReports() {
                             <div><MdDarkMode /> </div>}
                     </button>
                     {darkMode ? (
-                        <div className="hidden lg:block text-[12px] mt-1 mr-1 text-gray-100">Dark Mode</div>
+                        <div className="max-[639px]:hidden lg:block text-[12px] mt-1 mr-1 text-gray-100">Dark Mode</div>
                     ) : (
-                        <div className="hidden lg:block text-[12px] mt-1 mr-1 text-gray-800">Light Mode</div>
+                        <div className="max-[639px]:hidden lg:block text-[12px] mt-1 mr-1 text-gray-800">Light Mode</div>
                     )}
 
                 </div>
