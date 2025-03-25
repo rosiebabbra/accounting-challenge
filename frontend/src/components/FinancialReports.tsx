@@ -9,7 +9,6 @@ export default function FinancialReports() {
     const [darkMode, setDarkMode] = useState(() => {
         const stored = localStorage.getItem("theme")
         if (stored) return stored === "dark"
-        console.log(stored)
         return window.matchMedia("(prefers-color-scheme: dark)").matches
     })
 
