@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 
 export default function AppWrapper({ children }) {
-    const [isDark, setIsDark] = useState(() => {
+    const [isDark, _] = useState(() => {
         return localStorage.getItem("theme") === "dark"
     })
 

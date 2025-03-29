@@ -11,7 +11,7 @@ def import_xml():
     if not file:
         return jsonify({"error": "No file uploaded"}), 400
 
-    transactions = parse_xml_to_transactions(file.stream)
+    transactions = parse_xml_file(file.stream)
 
     for tx in transactions:
         db.session.add(tx)
