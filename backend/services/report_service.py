@@ -19,29 +19,28 @@ def get_transactions_for_company(
     )
 
 
-def summarize_by_account_prefix(transactions: List[Transaction]) -> Dict[str, float]:
-    summary = {}
-    for t in transactions:
-        prefix = t.account_code[:2]  # e.g., '60', '70'
-        summary[prefix] = summary.get(prefix, 0) + t.amount
-    return summary
-
-
 def generate_balance_sheet(transactions):
+    """
+    The amount is calculated as (credit - debit), so:
+    - A negative amount implies a net debit → treated as increase in assets
+    - A positive amount implies a net credit → treated as increase in liabilities
+    This logic splits the values accordingly for the balance sheet.
+    """
+
     assets_total = 0.0
     liabilities_total = 0.0
 
     for txn in transactions:
         if txn.amount < 0:
-            assets_total += abs(txn.amount)  # Debit → Asset
+            assets_total += abs(txn.amount)
         else:
-            liabilities_total += txn.amount  # Credit → Liability
+            liabilities_total += txn.amount
 
     equity_total = assets_total - liabilities_total
 
     return {
         "assets": {
-            "fixed": 0.0,  # no breakdown info
+            "fixed": 0.0,
             "current": assets_total,
             "total": assets_total,
         },
@@ -54,23 +53,33 @@ def generate_balance_sheet(transactions):
             "retained_earnings": equity_total,
             "total": equity_total,
         },
-        "balanced": round(assets_total, 2) == round(liabilities_total + equity_total, 2),
+        "balanced": round(assets_total, 2)
+        == round(liabilities_total + equity_total, 2),
     }
 
 
 def generate_pnl(transactions):
+    """
+    Assumes amounts are calculated as (credit - debit):
+    - Positive amounts implies a net credit → treated as revenue
+    - Negative amounts implies a net debit → treated as expenses
+    Currently, revenue is entirely categorized as "product_sales",
+    and all expenses are grouped under "external_services".
+    Returns structured totals for revenue, expenses, and net profit.
+    """
+
     total_revenue = 0.0
     total_expenses = 0.0
 
     for txn in transactions:
         if txn.amount > 0:
-            total_revenue += txn.amount  # Credit → Revenue
+            total_revenue += txn.amount
         else:
-            total_expenses += abs(txn.amount)  # Debit → Expense
+            total_expenses += abs(txn.amount)
 
     return {
         "revenue": {
-            "product_sales": total_revenue,  # No breakdown
+            "product_sales": total_revenue,
             "grants": 0.0,
             "total": total_revenue,
         },
